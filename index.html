@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pedra Papel Tesoura</title>
+</head>
+
+<body>
+    <script>
+        const jogadas = ['Pedra', 'Papel', 'Tesoura']
+
+        function computerPlay() {
+            computerSelection = jogadas[(Math.floor(Math.random() * (3)))]
+            console.log('A jogada do computador é ' + (computerSelection))
+            return computerSelection
+        }
+        computerPlay()
+
+    </script>
+</body>
+
+</html>
