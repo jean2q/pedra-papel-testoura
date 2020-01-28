@@ -1,23 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <title>Pedra Papel Tesoura</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
     <script>
-        const jogadas = ['Pedra', 'Papel', 'Tesoura']
+        function mudaFoto(foto) {
+            document.getElementById("Adversario").src = foto;
+
+        }
+        function playerPlay() {
+            playerSelection = document.querySelector('input[type=radio]:checked').value
+            return playerSelection
+        }
 
         function computerPlay() {
+            const jogadas = ['Pedra', 'Papel', 'Tesoura']
             computerSelection = jogadas[(Math.floor(Math.random() * (3)))]
-            console.log('A jogada do computador é ' + (computerSelection))
+            document.getElementById("Resultado").innerText = ('A jogada do computador é ' + (computerSelection))
             return computerSelection
         }
-        computerPlay()
+
+        var win = 0
+        var lose = 0
+        function playRound() {
+            computerPlay()
+            playerPlay()
+            // condição de empate
+            if (playerSelection == computerSelection) {
+                document.getElementById("Resultado").innerText = "Ocorreu um empate"
+            }
+            // Condições de vitória usuário
+            else if (playerSelection == "Pedra" && computerSelection === "Tesoura") {
+                document.getElementById("Resultado").innerText = (`Você escolheu ${playerSelection} e o inimigo ${computerSelection}, Parabéns você ganhou a rodada!! `)
+                win ++
+                document.getElementById("Wins").innerText = (`Vitórias: ${win}`)
+            }
+            else if (playerSelection == "Papel" && computerSelection === "Pedra") {
+                document.getElementById("Resultado").innerText = (`Você escolheu ${playerSelection} e o inimigo ${computerSelection}, Parabéns você ganhou a rodada!! `)
+                win ++
+                document.getElementById("Wins").innerText = (`Vitórias: ${win}`)
+            }
+            else if (playerSelection == "Tesoura" && computerSelection === "Papel") {
+                document.getElementById("Resultado").innerText = (`Você escolheu ${playerSelection} e o inimigo ${computerSelection}, Parabéns você ganhou a rodada!!  `)
+                win ++
+                document.getElementById("Wins").innerText = (`Vitórias: ${win}`)
+            }
+            // Condição de derrota usuário;
+            else if (playerSelection == "Pedra" && computerSelection === "Papel") {
+                document.getElementById("Resultado").innerText = (`Você escolheu ${playerSelection} e seu adversário ${computerSelection}, portanto, você PERDEU.`)
+                lose ++
+                document.getElementById("Loses").innerText = (`Derrotas: ${lose}`)
+            }
+            else if (playerSelection == "Papel" && computerSelection === "Tesoura") {
+                document.getElementById("Resultado").innerText = (`Você escolheu ${playerSelection} e seu adversário ${computerSelection}, portanto, você PERDEU.`)
+                lose ++
+                document.getElementById("Loses").innerText = (`Derrotas: ${lose}`)
+            }
+            else if (playerSelection == "Tesoura" && computerSelection === "Pedra") {
+                document.getElementById("Resultado").innerText = (`Você escolheu ${playerSelection} e seu adversário ${computerSelection}, portanto, você PERDEU. `)
+                lose ++
+                document.getElementById("Loses").innerText = (`Derrotas: ${lose}`)
+            }
+
+        }
 
     </script>
+    <div id="Wins" class="Score">Vitórias:</div>
+    <div id="Loses" class="Score">Derrotas:</div>
+
+    <div id="RPS">
+        <input type="radio" name="jogadaPlayer" value="Pedra" id="Pedra" checked>
+        <label for="Pedra">
+            <img src="_imagens/pedra1.png">
+        </label>
+
+        <input type="radio" name="jogadaPlayer" value="Papel" id="Papel">
+        <label for="Papel">
+            <img src="_imagens/papel1.png">
+        </label>
+
+        <input type="radio" name="jogadaPlayer" value="Tesoura" id="Tesoura">
+        <label for="Tesoura">
+            <img src="_imagens/tesoura1.png">
+        </label>
+    </div>
+
+    
+    <button onClick="playRound()">J<br>O<br>G<br>A<br>R<br>!</button>
+    <div id="Resultado"></div>
+
+
 </body>
 
 </html>

@@ -1,0 +1,76 @@
+div img{
+    border:solid black;
+    opacity:0.5;
+    width:180px;
+    margin-right:0px;
+    display:inline;
+}
+#RPS{
+    margin-left:25%;
+
+}
+div img:hover{
+    border:solid white;
+    cursor:pointer;
+    opacity:1;
+}
+input[type=radio]:checked + label > img{
+    border:solid white;
+    opacity:1;
+
+}
+body {
+    background-color:rgb(85, 54, 64)
+}
+input[type=radio]{
+    display:none;
+}
+div#Resultado{
+    position:absolute;
+    background-color:black;
+    width:560px;
+    height:200px;
+    font-family:helvetica;
+    color:white;
+    margin-left:24.6%;
+    margin-top:-5px;
+    text-align:center;
+    line-height:200px;
+}
+button{
+    font-family:helvetica;
+    font-size:14pt;
+    margin-left:65%;
+    height:190px;
+    width:30px;
+    background-color:rgb(255, 234, 0);
+    border-radius: 5px;
+    border: 1px solid rgb(255, 234, 0);
+    position:absolute;
+}
+button:hover{
+    color:white;
+    font-weight:bolder;
+    border:3px solid white;
+
+}
+div#Wins{
+    margin-right:px;
+    margin-left:px;
+    width:280px;
+    margin-left:25%;
+    margin-top:-6px;
+    margin-bottom:0px;
+    background-color:white;
+    font-size:19pt;
+    display:block;
+}
+div#Loses{
+    width:280px;
+    margin-left:45.5%;
+    margin-top:0;
+    background-color:white;
+    font-size:19pt;
+    display:block;
+    margin-bottom:2px;
+}
